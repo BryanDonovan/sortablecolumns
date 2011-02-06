@@ -1,0 +1,34 @@
+=== 3.0.3 / 2011-02-06
+* Compatible with Rails 3 (tested against Rails 3.0.3 in particular)
+* Changing version numbering to match Rails version tested against.
+
+=== 0.1.6 / 2009-02-20
+* Fixed bugs so tests actually pass in Rails 2.2.2.  Erroneously tested against 2.1.2 for release 0.1.5.
+
+=== 0.1.5 / 2009-02-19
+* Fixed bug 23868 - now works with Rails 2.2 - http://rubyforge.org/tracker/?atid=23868&group_id=6158&func=browse
+* Added default_sorter as an option instead of creating a yaml file.  Also able to generate default yaml output using 
+  ModelName.default_col_defs
+
+=== 0.1.4 / 2008-06-04
+* Table heading (TH) urls now remove any parameter named "page". This is to support paginated tables
+  since, if a user is on a page other than 1, clicking on a column heading should sort all data and 
+  revert back to page 1.
+* Changed self.#{sorter_name}_col_text to return non-breaking space when nil or empty string.  
+  (this is to force TD elements to be displayed when empty)
+
+=== 0.1.3 / 2008-05-05
+* Minor test updates, doc updates
+
+=== 0.1.2 / 2008-05-01
+
+* Added date and datetime formats for columns
+* Added ability to supply attributes as extra url parameters
+
+=== 0.1.1 / 2008-04-29
+
+* Minor fixes to test code
+
+=== 0.1.0 / 2008-04-29
+
+* Initial Release

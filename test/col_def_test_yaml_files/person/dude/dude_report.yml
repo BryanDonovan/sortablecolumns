@@ -1,0 +1,43 @@
+-
+  dudename:
+    heading: Dudename
+    datatype: string
+    link_options: 
+      object_url: true
+
+-
+  lastname:
+    heading: Last
+    datatype: string
+-
+  age:
+    heading: Age
+    datatype: number 
+- 
+  description:
+    heading: Description
+    datatype: string
+    sortable: false
+    print_options:
+      wrappers: 
+        - truncate: 
+           :length: 5 
+        - simple_format
+-
+  print_view:
+    in_resultset: false
+    heading: false
+    print_text: Print
+    link_options: 
+      controller: dudes
+      action: print_view
+      person_id: person_id
+-
+  created_at:
+    heading: Create Date
+    datatype: datetime
+    date_format: "%m/%d/%Y at %I:%M%p"
+-
+  registered_at:
+    heading: Registration Date 
+    datatype: datetime

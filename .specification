@@ -1,0 +1,77 @@
+--- !ruby/object:Gem::Specification 
+name: sortablecolumns
+version: !ruby/object:Gem::Version 
+  version: 0.1.6
+platform: ruby
+authors: 
+- Bryan Donovan - http://www.bryandonovan.com
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2009-02-20 00:00:00 -08:00
+default_executable: 
+dependencies: 
+- !ruby/object:Gem::Dependency 
+  name: hoe
+  type: :development
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: 1.8.3
+    version: 
+description: Sortable HTML tables for Rails
+email: b.dondo+rubyforge@gmail.com
+executables: []
+
+extensions: []
+
+extra_rdoc_files: 
+- History.txt
+- Manifest.txt
+- README.txt
+files: 
+- History.txt
+- Manifest.txt
+- README.txt
+- Rakefile
+- lib/sortablecolumns.rb
+- lib/sortablecolumns/helpers.rb
+- lib/sortablecolumns/sortablecolumns.rb
+- test/col_def_test_yaml_files/person/dude/dude_report.yml
+- test/col_def_test_yaml_files/person/mysorter.yml
+- test/col_def_test_yaml_files/person/tacosorter.yml
+- test/sortablecolumns_test.rb
+has_rdoc: true
+homepage: http://rubyforge.org/projects/sortablecolumns/
+licenses: []
+
+post_install_message: 
+rdoc_options: 
+- --main
+- README.txt
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+requirements: []
+
+rubyforge_project: sortablecolumns
+rubygems_version: 1.3.5
+signing_key: 
+specification_version: 2
+summary: Sortable HTML tables for Rails
+test_files: []
+

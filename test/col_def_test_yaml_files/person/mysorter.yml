@@ -1,0 +1,64 @@
+-
+  firstname:
+    heading: First
+    datatype: string
+    link_options:
+      controller: people
+      action: show
+      id: obj_id
+    td_class: left
+
+-
+  lastname:
+    heading: Last
+    datatype: string
+    print_options:
+      wrappers: sanitize
+-
+  age:
+    datatype: number 
+    sort_options:
+      default_dir: desc
+    td_class: center 
+- 
+  description:
+    datatype: string
+    sortable: false
+    print_options:
+      wrappers: 
+        - auto_link
+        - sanitize 
+        - simple_format
+    td_class: left
+-
+  balance:
+    datatype: currency
+    precision: 2 
+    separator: ","
+    delimiter: " "
+    unit: £
+    td_class: right
+
+-
+  edit:
+    in_resultset: false
+    heading: false
+    th_class: invisible
+    print_text: Edit
+    link_options:
+      controller: people
+      action: edit  
+      id: obj_id
+-
+  delete:
+    in_resultset: false
+    heading: false
+    th_class: invisible
+    print_text: Delete 
+    link_options:
+      controller: people
+      action: destroy 
+      id: obj_id
+      extras:
+        method: delete
+        confirm: Are you sure?

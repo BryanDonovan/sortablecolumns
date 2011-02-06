@@ -1,0 +1,28 @@
+-
+  type:
+    heading: Taco Type 
+    datatype: string
+    link_options:
+      url: "http://www.tacotypes.com"
+-
+  meat:
+    heading: Meat 
+    datatype: string
+    link_options:
+      url: "/foods/meats/:id"
+    sort_options:
+      order_by: meats.id
+-
+  calories:
+    heading: Calories
+    datatype: number 
+    precision: 2
+    link_options:
+      controller: foods
+      action: calories
+      foo: bar
+-
+  packaged_on:
+    heading: Packaged On
+    datatype: date
+    date_format: '%m/%d/%Y'
