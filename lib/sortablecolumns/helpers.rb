@@ -73,10 +73,6 @@ module Sortablecolumns
           end
         elsif link_ops[:url]
           url = link_ops[:url].gsub(/:id/, obj.id.to_s)
-          #unless url.match(/http/)
-          #  url = 'http://' + default_url_options[:host] + url
-          #end
-          #txt = "<a href=\"#{url}\">#{txt}</a>"
           txt = link_to(txt, url)
         end
       end

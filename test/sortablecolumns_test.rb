@@ -4,8 +4,9 @@ require 'mocha'
 require 'hpricot'
 $:.unshift File.dirname(__FILE__) + '/../lib'
 require 'sortablecolumns'
+require 'rails'
 require 'action_dispatch/testing/integration'
-require 'rails/all'
+require 'active_record/railtie'
 
 module MySorterApp
   class Application < Rails::Application
@@ -120,6 +121,7 @@ class SortableColumnsTest < Test::Unit::TestCase
     @person = Person.create(:firstname => "Billy", :lastname => "Jones", :age => 24, 
     :description => "Billy is an awesome guy.\nHowever, he is also a punk. He loves www.google.com. ")
     @person.save 
+		@this_dir = File.expand_path(File.dirname(__FILE__))
   end
 
   def teardown
@@ -131,12 +133,14 @@ class SortableColumnsTest < Test::Unit::TestCase
   end
 
   def test_person_yaml_path
-    assert_equal "./../test/col_def_test_yaml_files/person/mysorter.yml", Person.mysorter_yaml_path
+		expected = File.expand_path(File.join(@this_dir,"col_def_test_yaml_files/person/mysorter.yml")) 
+    assert_equal expected, File.expand_path(Person.mysorter_yaml_path)
   end
 
   def test_sub_person_yaml_path
     #test sub-models & models with multi-word names, such as SubPerson
-    assert_equal "./../test/col_def_test_yaml_files/person/sub_person/cool_sorter_thing.yml", SubPerson.cool_sorter_thing_yaml_path
+		expected = File.expand_path(File.join(@this_dir,"col_def_test_yaml_files/person/sub_person/cool_sorter_thing.yml")) 
+    assert_equal expected, File.expand_path(SubPerson.cool_sorter_thing_yaml_path)
   end
 
   def test_person_mysorter_yaml_load
@@ -161,7 +165,8 @@ class SortableColumnsTest < Test::Unit::TestCase
   end
 
   def test_dude_yaml_path
-    assert_equal "./../test/col_def_test_yaml_files/person/dude/dude_report.yml", Dude.dude_report_yaml_path
+		expected = File.expand_path(File.join(@this_dir,"col_def_test_yaml_files/person/dude/dude_report.yml")) 
+    assert_equal expected, File.expand_path(Dude.dude_report_yaml_path)
   end
 
   def test_dude_yaml_load

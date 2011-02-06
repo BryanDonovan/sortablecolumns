@@ -1,17 +1,6 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "bundletest/version"
-
-=begin
-  p.name = "sortablecolumns"
-  p.author = "Bryan Donovan - http://www.bryandonovan.com"
-  p.email = "b.dondo+rubyforge@gmail.com"
-  p.description = "Sortable HTML tables for Rails"
-  p.summary = "Sortable HTML tables for Rails"
-  p.url = "http://rubyforge.org/projects/sortablecolumns/"
-  p.changes = p.paragraphs_of('History.txt', 0..1).join("\n\n")
-  p.remote_rdoc_dir = '' # Release to root
-=end
+require "sortablecolumns/version"
 
 Gem::Specification.new do |s|
   s.name        = "sortablecolumns"
@@ -29,4 +18,8 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- test/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
+
+	s.add_dependency "activerecord", ">=3.0.3"
+	s.add_dependency "activesupport", ">=3.0.3"
+	s.add_dependency "actionpack", ">=3.0.3"
 end
