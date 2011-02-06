@@ -1,12 +1,11 @@
 = SortableColumns
 
-* http://rubyforge.org/projects/sortablecolumns/
+* https://github.com/bdondo/sortablecolumns
 
 == DESCRIPTION:
 
 SortableColumns is a Rails plugin that allows easy creation of sortable HTML tables as plain HTML or as a YUI DataTable (requires YUI4Rails plugin - http://rubyforge.org/projects/yui4rails/).  Table column characteristics (e.g., default sort direction, data type, CSS attributes, and methods to wrap the output in) are defined in YAML files (more options to be added later, such auto-detecting the column types, using a hash, etc.). Multiple table column definitions can be created for a single model.
 
-Download an example app here: http://www.bryandonovan.com/sortable_columns_example.tar.gz
 
 Also see: ActiveRecord::Acts::SortableColumns::ClassMethods#sortable_columns
 
@@ -179,8 +178,10 @@ You can also have extra parameters in the url that are attributes in the results
 ==== View:
 
  <%= print_table(@people, :mysorter %>
+
 Or if you want alternating styles for table rows:
  <%= print_table(@people, :mysorter, :tr => {:classes => ['even','odd']}) %>
+
 And you can specify a table CSS class & id:
  <%= print_table(@people, :mysorter, :table => {:class => 'yui-skin-sam', :id => 'yui_table'}) %>
 
@@ -200,7 +201,7 @@ This is beta-quality software. It works well according to my tests, but the API 
 
 (The MIT License)
 
-Copyright (c) 2008 Bryan Donovan
+Copyright (c) 2008-2011 Bryan Donovan
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

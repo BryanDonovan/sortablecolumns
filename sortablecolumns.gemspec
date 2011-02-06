@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Bryan Donovan"]
   s.email       = ["b.dondo+rubyforge@gmail.com"]
-  s.homepage    = "http://rubyforge.org/projects/sortablecolumns/"
+  s.homepage    = "https://github.com/bdondo/sortablecolumns"
   s.summary     = "Sortable HTML tables for Rails"
   s.description = "Sortable HTML tables for Rails"
 
