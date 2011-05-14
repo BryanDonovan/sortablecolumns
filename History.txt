@@ -1,3 +1,6 @@
+=== 3.0.3.1 / 2011-05-14
+* Calling html_safe on empty/nil strings so they display correctly
+
 === 3.0.3 / 2011-02-06
 * Compatible with Rails 3 (tested against Rails 3.0.3 in particular)
 * Changing version numbering to match Rails version tested against.
