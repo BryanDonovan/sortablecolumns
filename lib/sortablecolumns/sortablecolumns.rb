@@ -55,7 +55,7 @@ module ActiveRecord #:nodoc:
             if self.#{sorter_name}_in_resultset?(col)
               ret = obj.send(col)
               if ret == '' or ret.nil?
-                ret = "&nbsp;" #so empty TD cells still get displayed
+                ret = "&nbsp;".html_safe #so empty TD cells still get displayed
               end
               return ret
             end

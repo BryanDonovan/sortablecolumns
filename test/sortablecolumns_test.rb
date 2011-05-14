@@ -94,20 +94,9 @@ end
 # Routes 
 #---------------------------------------------------
 MySorterApp::Application.routes.draw do
-  #   match 'products/:id' => 'catalog#view'
   match 'people/show/:id' => 'people#show', :as => :person
   match 'people/:person_id/foods' => 'foods#show', :as => :people_foods
-  #match 'foods/meats/:id' => 'foods#show', :as => :meat
-
-  #map.people_foods '/people/:person_id/foods',
-    #:controller => 'foods',
-    #:action => 'show'
-  #simulate the RESTful urls:
   resources :dudes
-  #map.dude '/dudes/:id',
-    #:controller => 'dudes',
-    #:action => 'show'
-
   match ':controller(/:action(/:id(.:format)))'
 end
 
@@ -463,6 +452,11 @@ class SortablecolumnsHelperTest < Test::Unit::TestCase
 
   def test_print_col_person_firstname
     assert_equal "<td class=\"left\"><a href=\"/people/show/#{@person.id}\">Billy</a></td>", @view.print_col(@person, :mysorter, :firstname)
+  end
+
+  def test_print_col_with_empty_string
+    @person.stubs(:firstname).returns('')
+    assert_equal "<td class=\"left\"><a href=\"/people/show/#{@person.id}\">&nbsp;</a></td>", @view.print_col(@person, :mysorter, :firstname)
   end
 
   def test_print_col_dude_dudename
