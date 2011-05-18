@@ -10,6 +10,7 @@ module Sortablecolumns
     end
 
     #Prints a single table column (TD element) with content
+    #TODO: refactor
     def print_col(obj, sorter, col)
       col = col.to_s
       klass = obj.class
@@ -29,10 +30,10 @@ module Sortablecolumns
         separator = klass.send("#{sorter}_separator",col) 
         delimiter = klass.send("#{sorter}_delimiter",col) 
         txt = number_to_currency(txt, :precision => precision, 
-        :unit => unit, :separator => separator, :delimiter => delimiter)
+          :unit => unit, :separator => separator, :delimiter => delimiter)
       end
 
-      if datatype == 'datetime' or datatype == 'date'
+      if datatype == 'datetime' || datatype == 'date'
         if txt.respond_to?(:strftime)
           format = klass.send("#{sorter}_date_format",col)
           txt = txt.strftime(format)
@@ -98,11 +99,8 @@ module Sortablecolumns
     #Prints single table row with content
     def print_table_row(obj, sorter, options={})
       txt = ''
-      klass = obj.class
-      cols = klass.send("#{sorter}_col_keys_in_order")
-      cols.each do |col|
-        txt << print_col(obj, sorter, col)
-      end
+      cols = obj.class.send("#{sorter}_col_keys_in_order")
+      cols.each { |col| txt << print_col(obj, sorter, col) }
       content_tag("tr", txt.html_safe, options)
     end
 
@@ -116,9 +114,7 @@ module Sortablecolumns
       tr_class = nil
       i = 0
       collection.each do |obj|
-        if alternate 
-          tr_class = tr_classes[i % 2]
-        end
+        tr_class = tr_classes[i % 2] if alternate 
         txt << print_table_row(obj, sorter, :class => tr_class) 
         i += 1
       end
@@ -135,7 +131,6 @@ module Sortablecolumns
       return content_tag("th", th_txt, :class => th_class) unless sortable
       url = get_col_heading_url(klass, sorter, col)
       link = link_to(th_txt, url)
-      #link = "<a href=\"#{url}\">#{th_txt}</a>"
       return content_tag("th", link, :class => th_class)
     end
 
@@ -170,9 +165,8 @@ module Sortablecolumns
 
     #Prints a row of TH tags with content
     def print_table_heading_row(klass, sorter, options={})
-      cols = klass.send("#{sorter}_col_keys_in_order")
       txt = ''
-      cols.each do |col|
+      klass.send("#{sorter}_col_keys_in_order").each do |col|
         txt << print_col_heading(klass, sorter, col)
       end
       content_tag("tr", txt.html_safe, options)
